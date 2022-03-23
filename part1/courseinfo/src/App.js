@@ -1,29 +1,31 @@
-const Header = ({course}) => {
+const Header = ({ course }) => {
   return (
     <h1>{course}</h1>
   );
 }
 
-const Content = ({parts, exercises}) => {
-  const {part1, part2, part3} = parts;
-  const {exercises1, exercises2, exercises3} = exercises;
-
+const Part = ({ part, exercise }) => {
   return (
-    <>
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-    </>
+    <p>
+      {part} {exercise}
+    </p>
   )
 }
 
-const Total = ({total}) => {
+const Content = ({ parts, exercises }) => {
+  const { part1, part2, part3 } = parts;
+  const { exercises1, exercises2, exercises3 } = exercises;
+
+  return (
+    <div>
+      <Part part={part1} exercise={exercises1} />
+      <Part part={part2} exercise={exercises2} />
+      <Part part={part3} exercise={exercises3} />
+    </div>
+  )
+}
+
+const Total = ({ total }) => {
   return (
     <p>Number of exercises {total}</p>
   )
